@@ -1,0 +1,31 @@
+<div class="main">
+        <div class="container">
+                <table class="table">
+                <thead class="thead-light">
+                        <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Owner</th>
+                        <th scope="col">Contact</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Approve</th>
+                        <th scope="col">Reject</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor = "let ph of listOfRequests">
+                            <td>{{ph.hotel_id}}</td>
+                            <td>{{ph.name}}</td>
+                            <td>{{ph.user_id.name}}</td>
+                            <td>{{ph.phone}}</td>
+                            <td>{{ph.address_id.area}}, {{ph.address_id.landmark}}, {{ph.address_id.city}}</td>
+                            <td><button class="btn btn-outline-success" type="submit" (click)="approveHotel(ph.hotel_id)">Approve</button></td>
+                            <td><button class="btn btn-outline-danger" type="submit" (click)="rejectHotel(ph.hotel_id)">Reject</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+</div>
+
+<app-adminhome></app-adminhome>
+<router-outlet></router-outlet>

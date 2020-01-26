@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>List</title>
+</head>
+<body>
+   <div class="main">
+      <div class="row" style="text-align: center;">
+          <div class="col-4"></div>
+          <div class="col-4">
+              <form #formsData="ngForm" (ngSubmit)="getLoadAgain(formsData)">
+                  <div class="form-group">
+                      <select class="form-control" ngModel name="hotel_id">
+                          <option *ngFor="let h of hotels"  value="{{h.hotel_id}}">{{h.name}}</option>
+                      </select>
+                      <button class="btn btn-outline-info" type="submit">Get List</button>
+                  </div>
+             </form>
+          </div>
+          <div class="col-4"></div>
+      </div> 
+  
+     <div class="container">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Price</th>
+                <th>Rating</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let m of menus">
+                <td>{{m.name}}</td>
+                <td>{{m.type}}</td>
+                <td>{{m.price}}</td>
+                <td>{{m.rating}}</td>
+                <td><button class="btn btn-outline-primary" type="submit" (click)="editMenu(m)">Edit</button></td>
+                <td><button class="btn btn-outline-danger" type="submit" (click)="deleteMenu(m)">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+   </div>
+</body>
+</html>
+<router-outlet></router-outlet>

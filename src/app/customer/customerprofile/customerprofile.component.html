@@ -1,0 +1,118 @@
+<div class="main">
+  <div class="d-flex" id="wrapper">
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading"> <strong>Welcome, {{customer.name}} </strong> </div>
+        <div class="list-group list-group-flush">
+          <button (click)='check("about")' class="list-group-item list-group-item-action bg-light">About</button>
+          <button (click)='check("order")' class="list-group-item list-group-item-action bg-light">My Orders</button>
+          <button (click)='check("address")' class="list-group-item list-group-item-action bg-light">My Addresses</button>
+        </div>  
+    </div>
+  
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div *ngIf="isAbout()" class="aboutTable">
+                <div class="container">
+                    <div class="row">
+                    <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <div class="card-content">
+                                <div class="card-img">
+                                    <img src="../../../assets/wall.jpeg">
+                                    <span><h4>Welcome, {{customer.name}}</h4></span>
+                                </div>
+                                <div class="card-desc">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">Name: {{customer.name}}</li>
+                                        <li class="list-group-item">Email: {{customer.email}}</li>
+                                        <li class="list-group-item">Phone: {{customer.mobile}}</li>
+                                        <li class="list-group-item">Password: {{customer.password}}</li>
+                                        <li class="list-group-item" style="text-align: center;">
+                                            <span><a class="btn btn-outline-primary">Edit</a> </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4"></div>
+                    </div>
+                </div>
+              </div>
+
+             
+              <div *ngIf="isOrders()" class="aboutTable">
+                  <table class="table">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th scope="col">Order ID</th>
+                          <th scope="col">Menus</th>
+                          <th scope="col">Hotel Name</th>
+                          <th scope="col">Price</th>
+                          <th scope="col">Date</th>
+                          <th scope="col">Time</th>
+                          <th scope="col">Quantity</th>
+                          <th scope="col">Amount</th>
+                          <th scope="col">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let o of orders">
+                          <td>{{o.order_id.order_id}}</td>
+                          <td>{{o.menu_id.name}}</td>
+                          <td>{{o.menu_id.hotel_id.name}}</td>
+                          <td>{{o.menu_id.price}}</td>
+                          <td>{{o.order_id.date}}</td>
+                          <td>{{o.order_id.time}}</td>
+                          <td>{{o.quantity}}</td>
+                          <td>{{o.order_id.amount}}</td>
+                          <td>{{o.order_id.status}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+
+          
+            <div *ngIf="isAddress()">
+             
+                <section class="details-card">
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4"><button class="btn-card" routerLink="/customeraddaddress">Add New Address</button></div>
+                        <div class="col-md-4"></div>
+                     </div>
+                     <br><br>
+                  <div class="container">
+                        <div class="row">
+                            <div class="col-md-4" *ngFor="let a of addresses">
+                                <div class="card-content">
+                                    <div class="card-img">
+                                        <img src="../../../assets/home.jpeg">
+                                        <span><h4>Home</h4></span>
+                                    </div>
+                                    <div class="card-desc">
+                                        <h3>Address</h3>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">Flat: {{a.flat}}</li>
+                                            <li class="list-group-item">Building: {{a.building}}</li>
+                                            <li class="list-group-item">Landmark: {{a.landmark}}</li>
+                                            <li class="list-group-item">Area: {{a.area}}</li>
+                                            <li class="list-group-item">City: {{a.city}}</li>
+                                            <li class="list-group-item">State: {{a.state}}</li>
+                                            <li class="list-group-item">Zip: {{a.zip}}</li>
+                                            <li class="list-group-item" style="text-align: center;">
+                                                <span><a (click)="editAddress(a)" class="btn btn-outline-primary">Edit</a> </span>
+                                                <br><br>
+                                                <span><a (click)="deleteAddress(a)"  class="btn btn-outline-danger">Delete</a> </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>

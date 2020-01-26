@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body >
+    <div class="main">
+        <div class="row" style="text-align: center;">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <form #formsData="ngForm" (ngSubmit)="getLoadAgain(formsData)">
+                    <div class="form-group">
+                        <select class="form-control" ngModel name="hotel_id">
+                            <option *ngFor="let h of hotels"  value="{{h.hotel_id}}">{{h.name}}</option>
+                        </select>
+                        <br>
+                        <button class="btn btn-outline-dark" type="submit">Get List</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+            <div class="container">
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Menu</th>
+                        <th>Quantity</th>
+                        <th>Hotel</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                        <th>Payment Mode</th>
+                        <th>Amount</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let o of orders">
+                        <td>{{o.order_id.order_id}}</td>
+                        <td>{{o.menu_id.name}}</td>
+                        <td>{{o.quantity}}</td>
+                        <td>{{o.menu_id.hotel_id.name}}</td>
+                        <td>{{o.order_id.date}}</td>
+                        <td>{{o.order_id.time}}</td>
+                        <td>{{o.order_id.status}}</td>
+                        <td>{{o.order_id.type}}</td>
+                        <td>{{o.order_id.amount}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+</body>
+</html>
+
+<router-outlet></router-outlet>

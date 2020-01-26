@@ -1,0 +1,23 @@
+<div class="main">
+<div class="bs-example">
+        <div class="card" style="width: 400px;">
+            <img class="rounded-circle card-img-top" src="../../../assets/girlLogIn.jpeg" alt="pic">
+            <div class="card-body text-center">
+                <h5 class="card-title">{{admin.name}}</h5>
+                <p class="card-text">
+                        <br>
+                        Email: {{admin.email}}
+                        <br>
+                        Name: {{admin.name}}
+                        <br>
+                        Mobile: {{admin.mobile}}
+                        <br>
+                        Role: {{admin.role}}
+                </p>
+                <a (click)="logout()" class="btn btn-outline-danger">Logout</a>
+            </div>
+        </div>
+</div>
+</div>
+<app-adminhome></app-adminhome>
+<router-outlet></router-outlet>

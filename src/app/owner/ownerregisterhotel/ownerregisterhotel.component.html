@@ -1,0 +1,64 @@
+<div class="main">
+        <div class="container">
+                <div class="row">
+                  <div class="col-lg-10 col-xl-9 mx-auto">
+                    <div class="card card-signin flex-row my-5">
+                      <div class="card-img-left d-none d-md-flex">
+                         <!-- Background image for card set in CSS! -->
+                      </div>
+                      <div class="card-body">
+                        <!--START Form for registration of Hotel -->
+                        <form *ngIf="!isHotelRegisterd()" class="form-signin" #formsData="ngForm" (ngSubmit)="registerHotel(formsData)">
+                            <h5 class="card-title text-center">Register Hotel</h5>
+                            <div class="form-label-group">Name:
+                                <input type="text" ngModel class="form-control" autofocus id="name" name="name" #name="ngModel" required placeholder="Enter name" >
+                            </div>
+                            <div class="form-label-group">Email:
+                                <input type="email" ngModel class="form-control" autofocus id="email" name="email" #email="ngModel" required  placeholder="Enter email" >
+                            </div>
+                            <div class="form-label-group">Phone:
+                                <input type="text" ngModel class="form-control" autofocus id="phone" name="phone" placeholder="Enter phone" required data-msg-error="PHONE">
+                            </div>
+                          <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                          <hr class="my-4">
+                          <div *ngIf="name.invalid && name.touched" style="color: red; text-align: center;">
+                                <div *ngIf="name.errors.required">Name is Required</div>
+                          </div>
+                          <div *ngIf="email.invalid && email.touched" style="color: red; text-align: center;">
+                                <div *ngIf="email.errors.required">Email is Required</div>
+                          </div>
+                        </form> 
+                        <!-- END Form for registration of Hotel -->
+        
+                        <!--START Form for ADDRESS of Hotel -->
+                        <form *ngIf="isHotelRegisterd()" class="form-signin" #formsData="ngForm" (ngSubmit)="addHotelDetails(formsData)">
+                            <h5 class="card-title text-center">Add Address of Hotel</h5>
+                            <div class="form-label-group">Area:
+                                    <input type="text" ngModel class="form-control" id="area" name="area" required="required" placeholder="For e.g Phase 3">
+                            </div>
+                            <div class="form-label-group">Building:
+                                    <input type="text" ngModel class="form-control" id="building" name="building" required="required" placeholder="For e.g Sparklet">
+                            </div>
+                            <div class="form-label-group">City:
+                                    <input type="text" ngModel class="form-control" id="city" name="city" required="required" placeholder="For e.g Pune">
+                            </div>
+                            <div class="form-label-group">Landmark:
+                                    <input type="text" ngModel class="form-control" id="landmark" name="landmark" required="required" placeholder="For e.g Near Fountain Market">
+                            </div>
+                            <div class="form-label-group">State:
+                                    <input type="text" ngModel class="form-control" id="state" name="state" required="required" placeholder="For e.g Maharashtra">
+                            </div>
+                            <div class="form-label-group">Zip:
+                                    <input type="number" ngModel class="form-control" id="zip" name="zip" required="required" placeholder="For e.g 411057">
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Add</button>
+                            <hr class="my-4">
+                        </form> 
+                        <!-- END Form for ADDRESS of Hotel -->
+        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+</div>

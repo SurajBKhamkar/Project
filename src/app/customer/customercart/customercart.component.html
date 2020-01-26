@@ -1,0 +1,45 @@
+<div class="main">    
+    <div class="container py-5">
+        <div style="text-align: center;"> <a routerLink="/customerhome">Want something more? Just click here..</a> </div>
+        <div align="right"><img src="../../../assets/shopping_cart.svg" class="cart"></div>
+        <br>
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr style="text-align: center;">
+                <th>Item Name</th>
+                <th>Hotel Name</th>
+                <!-- <th>Quantity</th> -->
+                <th>Price</th>
+                <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of items"  style="text-align: center;">
+                    <td>{{i.name}}</td>
+                    <td>{{i.hotel_id.name}}</td>
+                    <!--  <td style="width: 200px;">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" id="minus" class="btn btn-primary" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" (click)="calculateTotalAgain()">-</button>
+                            <input  type="number" min="1" ngModel name="quantity" style="text-align: center;" value="1">
+                            <button type="button" id="plus" class="btn btn-primary" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" (click)="calculateTotalAgain()">+</button>
+                        </div>
+                    </td> -->
+                    <td>{{i.price}}</td>
+                    <td><button type="button" class="btn btn-outline-danger" (click)="removeItem(i)">Remove</button></td>
+                </tr>
+            </tbody>
+        </table>   
+            <div align="right">
+                <h3>Total:&nbsp;&nbsp;&nbsp;{{total}}</h3>
+            </div>
+            <div align="right">
+                    <button type="submit" class="btn btn-outline-danger" (click)="placeOrder()">Place Order</button>
+            </div>
+
+            
+
+    </div>
+</div>
+
+<router-outlet></router-outlet>

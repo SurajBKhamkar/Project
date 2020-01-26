@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>List of Users</title>
+</head>
+<body>
+    <div class="main">
+            <div class="container">     
+                    <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Mobile</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let u of users">
+                            <td>{{u.name}}</td>
+                            <td>{{u.email}}</td>
+                            <td>{{u.password}}</td>
+                            <td>{{u.mobile}}</td>
+                            <td>{{u.role}}</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+    </div>
+</body>
+</html>
+<app-adminhome></app-adminhome>
+<router-outlet></router-outlet>

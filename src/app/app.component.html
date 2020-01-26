@@ -1,0 +1,48 @@
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  
+    <div class="navbar-header">
+      <a class="navbar-brand active" routerLink="/homepage">WebSiteName</a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <!-- For Admin-->
+    <ul *ngIf="service.isLoggedIn()" style="text-align: right;" class="navbar-nav mr-auto" data-toggle="collapse" data-target=".navbar-collapse.show">
+        <li *ngIf="service.isAdmin()" class="nav-item active"> <a routerLink="/adminlistofusers" class="nav-link"> List of Users</a> </li>
+        <li *ngIf="service.isAdmin()" class="nav-item active"> <a routerLink="/adminlistofhotels" class="nav-link"> List of Hotels</a> </li>
+        <li *ngIf="service.isAdmin()" class="nav-item active"> <a routerLink="/admintodaysorders" class="nav-link"> Today's Orders</a> </li>        
+        <li *ngIf="service.isAdmin()" class="nav-item active"> <a routerLink="/adminthismonth" class="nav-link"> This Month's Orders</a> </li>
+        <li *ngIf="service.isAdmin()" class="nav-item active"> <a routerLink="/adminhotelrequest" class="nav-link"> Requests for Add Hotel</a> </li>
+    </ul>
+
+    <!-- For Owner-->
+    <ul *ngIf="service.isLoggedIn()" style="text-align: right;" class="navbar-nav mr-auto" data-toggle="collapse" data-target=".navbar-collapse.show">
+      <li *ngIf="service.isOwner()" class="nav-item active"><a routerLink="/ownerhome"  class="nav-link">List of Hotels</a></li>
+      <li *ngIf="service.isOwner()" class="nav-item active"><a routerLink="/ownertodaysorders"  class="nav-link"> Today's Orders</a></li>
+      <li *ngIf="service.isOwner()" class="nav-item active"><a routerLink="/ownerhandelorder"  class="nav-link"> Handel Orders</a></li>
+      <li *ngIf="service.isOwner()" class="nav-item active"><a routerLink="/ownerregisterhotel"  class="nav-link">Add Hotel</a></li>
+      <li *ngIf="service.isOwner()" class="nav-item active"><a routerLink="/ownerlistofmenus"  class="nav-link">List of Menus</a></li>
+      <li *ngIf="service.isOwner()" class="nav-item active"><a routerLink="/owneraddmenu"  class="nav-link">Add Menu</a></li>
+    </ul>
+
+    <!-- For Customer-->
+    <ul *ngIf="service.isLoggedIn()" style="text-align: right;" class="navbar-nav mr-auto" data-toggle="collapse" data-target=".navbar-collapse.show">
+      <li *ngIf="service.isCustomer()" class="nav-item active"><a routerLink="/customerhome"  class="nav-link">Home</a></li>
+      <li *ngIf="service.isCustomer()" class="nav-item active"><a routerLink="/customercart"  class="nav-link">Cart</a></li>
+      <li *ngIf="service.isCustomer()" class="nav-item active"><a routerLink="/customerprofile"  class="nav-link">Profile</a></li>
+      <li *ngIf="service.isCustomer()" class="nav-item active"><a routerLink="/customeraddaddress"  class="nav-link">Add Address</a></li>
+    </ul>
+
+    <!-- For All (Login/Logout)-->
+    <ul style="text-align: right;" class="navbar-nav mr-auto" data-toggle="collapse" data-target=".navbar-collapse.show">
+      <li *ngIf="!service.isLoggedIn()" class="nav-item active" ><a routerLink="/signupforowner" class="nav-link">Add Hotel</a></li>
+      <li *ngIf="!service.isLoggedIn()" class="nav-item active" ><a routerLink="/signup" class="nav-link">Sign Up</a></li>
+      <li *ngIf="!service.isLoggedIn()" class="nav-item active" ><a routerLink="/login" class="btn btn-outline-success">Login</a></li>
+      <li *ngIf="service.isLoggedIn()" class="nav-item active"><button type="button" class="btn btn-outline-danger" (click)="service.logout()">Logout</button></li>
+    </ul>
+  </div>
+</nav> 
+
+<router-outlet></router-outlet>

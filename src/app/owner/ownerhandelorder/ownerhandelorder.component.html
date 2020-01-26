@@ -1,0 +1,32 @@
+<div class="main">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Order ID</th>
+            <th scope="col">Menu</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Payment Type</th>
+            <th scope="col">Status</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td scope="row">{{order.order_id.order_id}}</td>
+            <td scope="row">{{order.menu_id.name}}</td>
+            <td scope="row">{{order.quantity}}</td>
+            <td scope="row">{{order.order_id.amount}}</td>
+            <td scope="row">{{order.order_id.type}}</td>
+            <td scope="row">{{order.order_id.status}}</td>
+            <td scope="row">
+                <span *ngIf="checkStatusForAccept(order)"> <button type="button" class="btn btn-outline-success" (click)="acceptOrder(order)">Accept</button> </span>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-primary" (click)="deliverOrder(order)">Delivered</button>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-danger" (click)="cancelOrder(order)">Cancel</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

@@ -1,0 +1,45 @@
+<div class="main">
+        <div class="container">
+                <div class="row">
+                  <div class="col-lg-10 col-xl-9 mx-auto">
+                    <div class="card card-signin flex-row my-5">
+                      <div class="card-img-left d-none d-md-flex">
+                         <!-- Background image for card set in CSS! -->
+                      </div>
+                      <div class="card-body">
+        
+                        <!--START Form for ADDRESS -->
+                        <form class="form-signin" (ngSubmit)="saveAddressDetails()">
+                                <h5 class="card-title text-center">Edit Address</h5>
+                                <div class="form-label-group">Flat:
+                                        <input type="text" [(ngModel)]="address.flat" class="form-control" id="flat" name="flat" required placeholder="For e.g A1 102">
+                                </div>
+                                <div class="form-label-group">Building:
+                                        <input type="text" [(ngModel)]="address.building" class="form-control" id="building" name="building" required placeholder="For e.g Sparklet">
+                                </div>
+                                <div class="form-label-group">Area:
+                                        <input type="text" [(ngModel)]="address.area" class="form-control" id="area" name="area" required placeholder="For e.g Phase 3">
+                                </div>
+                                <div class="form-label-group">Landmark:
+                                        <input type="text" [(ngModel)]="address.landmark" class="form-control" id="landmark" name="landmark" required placeholder="For e.g Near Fountain Market">
+                                </div>
+                                <div class="form-label-group">City:
+                                        <input type="text" [(ngModel)]="address.city" class="form-control" id="city" name="city" required placeholder="For e.g Pune">
+                                </div>
+                                <div class="form-label-group">State:
+                                        <input type="text" [(ngModel)]="address.state" class="form-control" id="state" name="state" required placeholder="For e.g Maharashtra">
+                                </div>
+                                <div class="form-label-group">Zip:
+                                        <input type="number" [(ngModel)]="address.zip" class="form-control" id="zip" name="zip" required placeholder="For e.g 411057">
+                                </div>
+                                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Save</button>
+                                <hr class="my-4">
+                        </form> 
+                        <!-- END Form for ADDRESS -->
+        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+</div>

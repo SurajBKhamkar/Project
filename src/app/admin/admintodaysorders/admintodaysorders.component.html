@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Today's Orders</title>
+</head>
+<body>
+    <div class="main">
+            <div class="container">     
+                    <table class="table">
+                    <thead class="thead-dark">
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customers Name</th>
+                                <th>Customers Email</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Amount</th>
+                                <th>Payment Mode</th>
+                                <th>Order Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let o of orders">
+                                <td>{{o.order_id}}</td>
+                                <td>{{o.oUserId.name}}</td>
+                                <td>{{o.oUserId.email}}</td>
+                                <td>{{o.date}}</td>
+                                <td>{{o.time}}</td>
+                                <td>{{o.amount}}</td>
+                                <td>{{o.type}}</td>
+                                <td>{{o.status}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+    </div>
+</body>
+</html>
+
+
+<app-adminhome></app-adminhome>
+<router-outlet></router-outlet>

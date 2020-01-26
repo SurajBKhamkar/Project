@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up</title>
+</head>
+<body>
+<div class="main">
+        <div class="card bg-light">
+                <article class="card-body mx-auto" style="max-width: 400px;">
+                    <h4 class="card-title mt-3 text-center">Create Account</h4>
+                    <p class="text-center">Register you as Owner of Hotel first</p>
+                    <form #formsData="ngForm" (ngSubmit)="signUpAsOwner(formsData)">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <img src="../../assets/account.svg"> </span>
+                        </div>
+                        <input type="text" ngModel class="form-control" id="name" name="name" required="required" placeholder="Enter name" >
+                    </div> <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <img src="../../assets/email-24px.svg"> </span>
+                            </div>
+                        <input type="email" ngModel class="form-control" id="email" name="email" required="required"  placeholder="Enter email" >
+                    </div> <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <img src="../../assets/phone-24px.svg"> </span>
+                        </div>
+                        <input type="number" ngModel class="form-control" id="mobile" name="mobile" required="required"  placeholder="Enter mobile" >
+                    </div> <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <img src="../../assets/lock-24px.svg"> </span>
+                        </div>
+                        <input type="password" ngModel class="form-control" id="password" name="password" required="required" placeholder="Enter password">
+                    </div> <!-- form-group// -->                           
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"> Create Account </button>
+                    </div> <!-- form-group// -->                                                                    
+                </form>
+                    <p class="text-center">Have an account? <a routerLink="/login">Log In</a> </p>   
+                </article>
+                </div> <!-- card.// --> 
+</div>
+</body>
+</html>

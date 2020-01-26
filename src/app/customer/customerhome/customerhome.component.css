@@ -1,0 +1,17 @@
+.main {
+    margin-top: 5%;
+}
+.glyphicon {
+    font-size: 25px;
+}
+
+.counter{
+    font-size: 25px;
+    color: red;
+}
+
+.card-columns {
+    column-count: 3;
+}
+
+      

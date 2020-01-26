@@ -1,0 +1,37 @@
+<div class="main">
+
+    <section class="details-card">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="card-content">
+                        <div class="card-img">
+                            <img src="../../../assets/foodlove.jpg" title="Quoted by Suraj khamkar">
+                            
+                        </div>
+                        <div class="card-desc">
+                            <div style="text-align: center;"><h3>Order Placed</h3></div>
+                            <ul class="list-group">
+                                <li class="list-group-item">{{orderDetails.order_id}}</li>
+                                <li class="list-group-item">{{orderDetails.amount}}</li>
+                                <li class="list-group-item">{{orderDetails.type}}</li>
+                                <li class="list-group-item">{{orderDetails.status}}</li>
+                                <li class="list-group-item" style="text-align: center;">
+                                    <span><a routerLink="/customerhome" class="btn-card">Home</a> </span>
+                                    <br><br>
+                                    <span><a (click)="cancelOrder()"  class="btn btn-outline-danger">Cancel Order</a> </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+<router-outlet></router-outlet>

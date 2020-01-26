@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>List of Hotels</title>
+</head>
+<body>
+    <div class="main">
+        <div class="container">     
+            <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Rating</th>
+                    <th>Status</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let h of hotels">
+                    <td>{{h.name}}</td>
+                    <td>{{h.email}}</td>
+                    <td>{{h.phone}}</td>
+                    <td>{{h.rating}}</td>
+                    <td>{{h.status}}</td>
+                    <td><button class="btn btn-outline-danger" type="submit" (click)="deleteHotel(h.hotel_id)">Delete</button></td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
+<app-adminhome></app-adminhome>
+<router-outlet></router-outlet>
